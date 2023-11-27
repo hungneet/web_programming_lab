@@ -1,0 +1,37 @@
+/* Style for the containder box */
+.bigbox {
+    margin: 20px; /* You can change the margin here */
+    padding: 10px;
+    height: 400px;
+    background-color: aquamarine; /* Change the background color */
+    border: 5px solid #333;
+    border-radius: 50px;
+    border-color: red;
+    text-align: center;
+    height: 500px;
+    
+}
+
+/* Style for the inside box */
+.box {
+    margin-top: 50px;
+    margin-left: 60px;
+    padding: 10px;
+    background-color: #f0f0f0; /* Change the background color */
+    border: 5px solid #333;
+    border-radius: 50px;
+    border-color: red;
+    text-align: center;
+    height: 100px;
+    width: fit-content;
+}
+
+/* Style for the paragraph inside the box */
+.box p {
+    margin: 10px; /* You can change the text margin here */
+    font-size: 18px; /* Change the font size (you can use different units) */
+    color: #333; /* Change the text color */
+    font-family: Arial, Helvetica, sans-serif; /* Change the font family */
+}
+
+

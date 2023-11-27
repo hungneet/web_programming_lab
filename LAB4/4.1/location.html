@@ -1,0 +1,103 @@
+<div>
+    <select
+      class="form-select form-select-sm mb-3"
+      id="city"
+      aria-label=".form-select-sm"
+    >
+      <option value="" selected>Select Province</option>
+    </select>
+  
+    <select
+      class="form-select form-select-sm mb-3"
+      id="district"
+      aria-label=".form-select-sm"
+    >
+      <option value="" selected>Select District</option>
+    </select>
+  
+    <select
+      class="form-select form-select-sm"
+      id="ward"
+      aria-label=".form-select-sm"
+    >
+      <option value="" selected>Select Ward</option>
+    </select>
+  
+    <button onclick="submitForm()">Submit</button>
+  </div>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+  <script>
+    var citiesDropdown = document.getElementById("city");
+    var districtsDropdown = document.getElementById("district");
+    var wardsDropdown = document.getElementById("ward");
+  
+    var apiEndpoint = "https://raw.githubusercontent.com/kenzouno1/DiaGioiHanhChinhVN/master/data.json";
+    var axiosConfig = {
+      url: apiEndpoint,
+      method: "GET",
+      responseType: "application/json",
+    };
+  
+    var promise = axios(axiosConfig);
+    promise.then(function (result) {
+      renderCities(result.data);
+    });
+  
+    function renderCities(data) {
+      // Populate cities dropdown
+      for (const city of data) {
+        citiesDropdown.options[citiesDropdown.options.length] = new Option(city.Name, city.Id);
+      }
+  
+      // Event listener for city dropdown
+      citiesDropdown.onchange = function () {
+        districtsDropdown.length = 1;
+        wardsDropdown.length = 1;
+  
+        if (this.value !== "") {
+          // Filter data to get selected city
+          const selectedCity = data.find((n) => n.Id === this.value);
+  
+          // Populate districts dropdown
+          for (const district of selectedCity.Districts) {
+            districtsDropdown.options[districtsDropdown.options.length] = new Option(district.Name, district.Id);
+          }
+        }
+      };
+  
+      // Event listener for district dropdown
+      districtsDropdown.onchange = function () {
+        wardsDropdown.length = 1;
+  
+        if (this.value !== "") {
+          // Filter data to get selected city and district
+          const selectedCity = data.find((n) => n.Id === citiesDropdown.value);
+          const selectedDistrict = selectedCity.Districts.find((n) => n.Id === this.value);
+  
+          // Populate wards dropdown
+          for (const ward of selectedDistrict.Wards) {
+            wardsDropdown.options[wardsDropdown.options.length] = new Option(ward.Name, ward.Id);
+          }
+        }
+      };
+    }
+  
+    function submitForm() {
+      // Collect selected values
+      const selectedCity = citiesDropdown.value;
+      const selectedDistrict = districtsDropdown.value;
+      const selectedWard = wardsDropdown.value;
+  
+      // Create a JSON object
+      const selectedValues = {
+        city: selectedCity,
+        district: selectedDistrict,
+        ward: selectedWard
+      };
+  
+      // Log the JSON object to the console
+      console.log(JSON.stringify(selectedValues));
+    }
+  </script>
+  

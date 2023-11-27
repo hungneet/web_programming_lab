@@ -1,0 +1,64 @@
+/* Reset margin and padding for the body and HTML */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+/* CSS for the header */
+header {
+    background-color: #333; 
+    text-align: center;
+    padding: 10px;
+}
+.guest_header {
+    color: gainsboro;
+    font-weight: bold;
+    /* Add other styles as needed */
+}
+.logged_header {
+    color: chartreuse;
+    font-weight: bold;
+    /* Add other styles as needed */
+}
+
+/* CSS for the main content */
+main {
+    min-height: calc(100% - 145px);
+    box-sizing: border-box;
+}
+
+/* CSS for the footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    /* position: absolute;
+    bottom: 0; */
+    width: 100%;
+}
+
+.pagination {
+    display: flex;
+    margin: 20px;
+}
+
+.pagination-btn {
+    padding: 8px 12px;
+    margin-right: 5px;
+    border: 1px solid #ccc;
+    text-decoration: none;
+    color: #333;
+    cursor: pointer;
+}
+
+.pagination-btn:hover {
+    background-color: #f2f2f2;
+}
+
+.pagination-btn.active {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+}

@@ -1,0 +1,26 @@
+.result{
+    margin: 30px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: large;
+    font-weight: bold;
+    text-align: center;
+}
+
+.buttons {
+    margin: 30px;
+    padding: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.numbers {
+    margin: 30px;
+    padding: 20px;
+    font-size: large;
+    font-weight: bold;
+    text-align: center;
+}
+

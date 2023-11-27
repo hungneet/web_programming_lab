@@ -1,0 +1,31 @@
+/* Reset margin and padding for the body and HTML */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+/* CSS for the header */
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+
+/* CSS for the main content */
+main {
+    min-height: calc(100% - 120px);
+    box-sizing: border-box;
+}
+
+/* CSS for the footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
